@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+	<div class="container">
+<form style="margin-left: 10px">
+	<div ng-controller="myCtrl1">
+	<div class="form-group">
+		<label>Họ và tên</label>
+		<input ng-model="student.fullname" class="form-control" style="width:200px" />
+	</div>
+
+	<div class="form-group">
+		<label>ngày sinh</label>
+		<input ng-model="student.date" class="form-control" style="width:200px"/>
+	</div>
+
+	<div class="form-group">
+		<label>Điểm</label>
+		<input ng-model="student.mark" class="form-control" style="width:200px"/>
+	
+	<div class="form-group">
+		<button class="btn btn-default" ng-click="save()">Lưu</button>
+		<button class="btn btn-default" ng-click="cancle()">Hủy</button>
+	</div>
+	<div class="form-group">
+		
+	</div>
+</form>
+	</div>
+	<div ng-controller = "myCtrl2">
+		<table class="table">
+			<tr>
+				<th>Họ và tên</th>
+				<th>Ngày sinh</th>
+				<th>Điểm</th>
+				<th></th>
+			</tr>
+			<tr>
+				<td>{{students[0].fulname}}</td>
+				<td>v</td>
+				<td>b</td>
+				<td><s></s></td>
+
+			</tr>
+		</table>
+	</div>
+	</div>
+
+	
+</body>
+<script type="text/javascript"> 
+	var app= angular.module("myApp",[]);
+	app.controller("myCtrl1",function($scope){
+		$cope.student="Nguyễn Văn A"
+
+	});
+
+	app.controller("myCtrl2",function($scope){
+
+		$scope.parent.students=[{
+			fulname:"Nguyễn Văn Tèo",
+			birthday:"11/1/2001",
+			mark:8.5
+
+		},{
+
+			$scope.parent.students=[{
+			fulname:"Nguyễn Văn A",
+			birthday:"20/1/1999",
+			mark:9.0
+		},{
+			$scope.parent.students=[{
+			fulname:"Nguyễn Văn B",
+			birthday:"15/3/2016",
+			mark:7.5
+		}];
+
+		$scope.edit=function(index){
+			$scope.$parent.index	= index;
+			$scope.$sparent.student= angular.copy($scope.$parent.students[index]);
+
+		}
+	});
+</script>
+</html>	

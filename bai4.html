@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+<form>
+	<div class="form-group">
+		<label>Chiều Dài</label>
+		<input ng-model="length" class="form-control" style="width:200px" />
+	</div>
+
+	<div class="form-group">
+		<label>Chiều Rộng</label>
+		<input ng-model="width" class="form-control" style="width:200px"/>
+	</div>
+
+	<div class="form-group">
+		<label>Diện Tích</label>
+		<input ng-model="acreage" class="form-control" style="width:200px"/>
+	</div>
+
+	<div class="form-group">
+		<label>Chu Vi</label>
+		<input ng-model="perimeter" class="form-control" style="width:200px"/>
+	</div>
+	<div class="form-group">
+		<button class="btn btn-default" ng-click="caculate()">Caculate</button>
+	</div>
+</form>
+
+	
+</body>
+<script type="text/javascript"> 
+	var app= angular.module("myApp",[]);
+	app.controller("myCtrl",function($scope){
+		$scope.caculate= function(){
+
+			var a= 	parseFloat($scope.width);
+			var b= parseFloat($scope.length);
+			$scope.perimeter= (a+b)*2;
+			$scope.acreage=a*b;
+
+		};
+
+
+	});
+</script>
+</html>
